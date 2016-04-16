@@ -142,6 +142,10 @@ public class FlowTextView extends RelativeLayout {
         for (int block_no = 0; block_no <= blocks.length - 1; block_no++) // at the highest level we iterate through each 'block' of text
         {
             String thisBlock = blocks[block_no];
+            if (block_no > 0) {
+                charOffsetStart++;
+                charOffsetEnd++;
+            }
             if (thisBlock.length() <= 0) { //is a line break
                 lineIndex++; // we need a new line
                 charOffsetEnd += 2;
@@ -334,7 +338,7 @@ public class FlowTextView extends RelativeLayout {
             height = mDesiredHeight;
         }
 
-        setMeasuredDimension(width, height + getLineHeight());
+        setMeasuredDimension(width, height);
     }
 
     // GETTERS AND SETTERS
