@@ -170,6 +170,7 @@ public class FlowTextView extends RelativeLayout {
                                 thisLineStr = thisBlock.substring(0, chunkSize);
                             } else {
                                 thisLineStr = thisBlock;
+                                thisBlock = "";
                             }
                         } else {
                             thisLineStr = "";
@@ -222,7 +223,7 @@ public class FlowTextView extends RelativeLayout {
                         }
                     }
 
-                    if (chunkSize >= 1) {
+                    if (chunkSize >= 1 && chunkSize < thisBlock.length()) {
                         thisBlock = thisBlock.substring(chunkSize, thisBlock.length());
                     }
 
